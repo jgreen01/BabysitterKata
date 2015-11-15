@@ -47,4 +47,9 @@ describe('Babysitter nightly charge calculator', function() {
 		var result = babysitter.calculate(23,1);
 		expect(result).toEqual(24);
 	});
+
+	it('11 hours of work. 5pm to 4am.', function() {
+		var result = babysitter.calculate(17,4);
+		expect(result).toEqual(136);
+	});
 });

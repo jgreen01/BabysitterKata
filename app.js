@@ -10,10 +10,13 @@ Babysitter.prototype.calculate = function(start, end) {
 	start = this._fixTime(start);
 	end = this._fixTime(end);
 
-	if(start >= this.bedtime) {
+	if(start >= this.midnight) {
+		return 16 * (end - start);
+	}
+	else if(start >= this.bedtime) {
 		return 8 * (end - start);
 	}
-	if(end > this.bedtime) {
+	else if(end > this.bedtime) {
 		return (8 * (end - this.bedtime)) + (12 * (this.bedtime - start));
 	} 
 	else {

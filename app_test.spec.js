@@ -37,4 +37,9 @@ describe('Babysitter nightly charge calculator', function() {
 		var result = babysitter.calculate(17,0);
 		expect(result).toEqual(72);
 	});
+
+	it('One hour of work after midnight. Midnight to 1am.', function() {
+		var result = babysitter.calculate(0,1);
+		expect(result).toEqual(16);
+	});
 });

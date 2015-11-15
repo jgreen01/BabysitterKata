@@ -7,9 +7,13 @@ Babysitter.prototype.midnight = 0;
 
 Babysitter.prototype.calculate = function(start, end) {
 
-	if(end > this.bedtime){
+	if(start >= this.bedtime) {
+		return 8 * (end - start);
+	}
+	if(end > this.bedtime) {
 		return (8 * (end - this.bedtime)) + (12 * (this.bedtime - start));
-	} else {
+	} 
+	else {
 		return 12 * (end-start);
 	}
 };

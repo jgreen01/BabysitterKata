@@ -13,6 +13,9 @@ Babysitter.prototype.calculate = function(start, end) {
 	if(start >= this.midnight) {
 		return 16 * (end - start);
 	}
+	else if(end > this.midnight) {
+		return (16 * (end - this.midnight)) + (8 * (this.midnight - start));
+	}
 	else if(start >= this.bedtime) {
 		return 8 * (end - start);
 	}

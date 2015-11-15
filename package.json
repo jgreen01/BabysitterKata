@@ -22,6 +22,5 @@
   },
   "homepage": "https://github.com/jgreen82/BabysitterKata#readme",
   "dependencies": {
-    "prompt": "^0.2.14"
   }
 }

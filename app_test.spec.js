@@ -28,7 +28,7 @@ describe('Babysitter nightly charge calculator', function() {
 		expect(result).toEqual(8);
 	});
 
-	it('Four hours of work after bedtime. 9pm to midnight.', function() {
+	it('Three hours of work after bedtime. 9pm to midnight.', function() {
 		var result = babysitter.calculate(21,0);
 		expect(result).toEqual(24);
 	});

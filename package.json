@@ -1,0 +1,27 @@
+{
+  "name": "babysitter-kata",
+  "version": "1.0.0",
+  "description": "A babysitter nightly charge calculator.",
+  "main": "app.js",
+  "scripts": {
+    "test": "jasmine-node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jgreen82/BabysitterKata.git"
+  },
+  "keywords": [
+    "babysitter",
+    "charge",
+    "calculator"
+  ],
+  "author": "Jon Green",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jgreen82/BabysitterKata/issues"
+  },
+  "homepage": "https://github.com/jgreen82/BabysitterKata#readme",
+  "dependencies": {
+    "prompt": "^0.2.14"
+  }
+}

@@ -1,23 +1,38 @@
 var Babysitter = function() {};
 
-Babysitter.prototype.timeHash = {17: 0, 18: 1, 19: 2, 20: 3, 21: 4, 22: 5, 23: 6, 0: 7, 1: 8, 2: 9, 3: 10, 4: 11};
-Babysitter.prototype.chargeArray = [12, 12, 12, 12, 8, 8, 8, 16, 16, 16, 16];
+Babysitter.prototype._timeHash = {	17: 0, // military time
+					18: 1, // to index
+					19: 2, 
+					20: 3, 
+					21: 4, 
+					22: 5, 
+					23: 6, 
+					0: 7, 
+					1: 8, 
+					2: 9, 
+					3: 10, 
+					4: 11	};
+
+Babysitter.prototype._chargeArray = [12, 12, 12, 12, 8, 8, 8, 16, 16, 16, 16];
 
 Babysitter.prototype.calculate = function(start, end) {
-	start = this._fixTime(start);
-	end = this._fixTime(end);
+	start = this._timeToIndex(start);
+	end = this._timeToIndex(end);
 
-	var charge = 0;
-
-	for(var i = start; i < end; i++) {
-		charge += this.chargeArray[i];
-	}
-
-	return charge;
+	return this._calculateCharge(start,end);
 };
 
-Babysitter.prototype._fixTime = function(time) {
-	return this.timeHash[time];
+Babysitter.prototype._timeToIndex = function(time) {
+	return this._timeHash[time];
+};
+
+Babysitter.prototype._calculateCharge = function(start, end) {
+	var charge = 0;
+
+	for(var i = start; i < end; i++)
+		charge += this._chargeArray[i];
+
+	return charge;
 };
 
 module.exports = Babysitter;

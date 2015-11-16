@@ -16,10 +16,10 @@ Babysitter.prototype._timeHash = {	17: 0, // military time
 Babysitter.prototype._chargeArray = [12, 12, 12, 12, 8, 8, 8, 16, 16, 16, 16];
 
 Babysitter.prototype.calculate = function(start, end) {
-	start = this._timeToIndex(start);
-	end = this._timeToIndex(end);
+	var	startIndex = this._timeToIndex(start),
+		endIndex = this._timeToIndex(end);
 
-	return this._calculateCharge(start,end);
+	return this._calculateCharge(startIndex,endIndex);
 };
 
 Babysitter.prototype._timeToIndex = function(time) {

@@ -1,8 +1,11 @@
 var Babysitter = require('./app.js');
 
 describe('Babysitter nightly charge calculator', function() {
-	var babysitter = new Babysitter();
+	var babysitter;
 
+	beforeEach(function(){
+		babysitter = new Babysitter();
+	});
 	it('One hour of work from 5pm to 6pm', function() {
 		var result = babysitter.calculate(17,18); // military time
 		expect(result).toEqual(12);
@@ -51,5 +54,29 @@ describe('Babysitter nightly charge calculator', function() {
 	it('11 hours of work. 5pm to 4am.', function() {
 		var result = babysitter.calculate(17,4);
 		expect(result).toEqual(136);
+	});
+
+	it('Set bedtime to 5pm. 5pm to 6pm. Expect $8', function() {
+		babysitter.setBedtime(17);
+		var result = babysitter.calculate(17,18);
+		expect(result).toEqual(8);
+	});
+
+	it('Set bedtime to 8pm. 6pm to 9pm. Expect $32.', function() {
+		babysitter.setBedtime(20);
+		var result = babysitter.calculate(18,21);
+		expect(result).toEqual(32);
+	});
+
+	it('Set bedtime to 7pm. 5pm to midnight. Expect $64.', function() {
+		babysitter.setBedtime(19);
+		var result = babysitter.calculate(17,0);
+		expect(result).toEqual(64);
+	});
+
+	it('Set bedtime to 7pm. 6pm to 2am. Expect $84.', function() {
+		babysitter.setBedtime(19);
+		var result = babysitter.calculate(18,2);
+		expect(result).toEqual(84);
 	});
 });

@@ -1,4 +1,6 @@
-var Babysitter = function() {};
+var Babysitter = function() {
+	this._chargeArray = [12, 12, 12, 12, 8, 8, 8, 16, 16, 16, 16];
+};
 
 Babysitter.prototype._timeHash = {	17: 0, // military time
 					18: 1, // to index
@@ -13,7 +15,12 @@ Babysitter.prototype._timeHash = {	17: 0, // military time
 					3: 10, 
 					4: 11	};
 
-Babysitter.prototype._chargeArray = [12, 12, 12, 12, 8, 8, 8, 16, 16, 16, 16];
+Babysitter.prototype.setBedtime = function(time) {
+	var bedtime = this._timeToIndex(time);
+	for(var i = bedtime; i < this._timeToIndex(0); i++){
+		this._chargeArray[i] = 8;
+	}
+};
 
 Babysitter.prototype.calculate = function(start, end) {
 	var	startIndex = this._timeToIndex(start),
